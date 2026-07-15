@@ -9,7 +9,7 @@ import Header from './components/Header'
 function App() {
   return (
     <BrowserRouter>
-     <Header>
+     <Header />
       <Routes>
       <Route path='/' element={<Home/>} />
       <Route path='/about' element={<About/>} />
@@ -17,7 +17,7 @@ function App() {
       <Route path='/signup' element={<SignUp/>} />
       <Route path='/profile' element={<Profile/>} />
      </Routes>
-     </Header>
+     
     </BrowserRouter>
   )
 }

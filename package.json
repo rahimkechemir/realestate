@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node api/index.js",
-    "dev": "nodemon api/index.js"
+    "dev": "npx kill-port 3000 && nodemon api/index.js"
   },
   "keywords": [
     "mern",
@@ -22,10 +22,10 @@
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.6.1",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.4.1"
+    "mongoose": "^8.24.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
