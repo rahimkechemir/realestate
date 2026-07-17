@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link , useNavigate} from "react-router-dom";
 import { useDispatch,useSelector } from "react-redux";
 import { signInFailure,signInStart,signInSuccess } from "../redux/user/userSlice.js";
+import OAuth from "../components/OAuth.jsx";
 function SignIn() {
  const {loading , error} = useSelector((state) => state.user);
   const [formData, setFormData] = useState({});
@@ -43,7 +44,7 @@ function SignIn() {
       </h1>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col gap-5 w-1/3 mx-auto"
+        className="flex w-auto flex-col gap-5 mx-auto"
       >
         
         <input
@@ -66,12 +67,15 @@ function SignIn() {
         >
           {loading ? "Signing in..." : "Sign in"}
         </button>
+        <OAuth/>
       </form>
+      
       <div className="text-center p-5 font-semibold">
         <p>Dont have an account ?</p>
         <Link to={"/signup"} className="text-blue-600">
           Sign up
         </Link>
+        
       </div>
       {error && (
         <div className="text-center p-5 font-semibold text-red-600">

@@ -1,7 +1,9 @@
 import React from "react";
 import { IoSearch } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 function Header() {
+  const { currentUser } = useSelector((state) => state.user);
   return (
     <header className="bg-slate-200 shadow-md flex justify-between items-center px-4 py-2 border-b-2 border-slate-300 max-w-6xl mx-auto p-3">
       <Link to="/" className="flex items-center gap-2">
@@ -22,12 +24,23 @@ function Header() {
         <li className="hidden sm:inline text-slate-700 hover:underline ">
           <Link to="/">Home</Link>
         </li>
+        <Link to="/about">
         <li className="hidden sm:inline text-slate-700 hover:underline">
-          <Link to="/about">About</Link>
-        </li>
-        <li className=" text-slate-700 hover:underline">
-          <Link to="/signin">Sign in</Link>
-        </li>
+          About</li></Link>
+          <Link to="/profile">
+          {currentUser ? (
+            <img className="rounded-full h-7 w-7 object-cover
+            " src={currentUser.avatar} alt="profile" />
+            
+            ):(
+              <li className=" text-slate-700 hover:underline">
+                
+                Sign in</li>)}
+          {currentUser && console.log(currentUser.avatar)}
+          </Link>
+        
+          
+        
       </ul>
     </header>
   );

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link , useNavigate} from "react-router-dom";
+import OAuth from "../components/OAuth";
 
 function SignUp() {
   const [error, setError] = useState(null);
@@ -46,7 +47,7 @@ function SignUp() {
       </h1>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col gap-5 w-1/3 mx-auto"
+        className="flex flex-col w-auto gap-5 mx-auto"
       >
         <input
           type="text"
@@ -75,12 +76,15 @@ function SignUp() {
         >
           {loading ? "Signing up..." : "Sign up"}
         </button>
+        <OAuth/>
       </form>
+
       <div className="text-center p-5 font-semibold">
         <p>Have an account ?</p>
         <Link to={"/signin"} className="text-blue-600">
           Sign in
         </Link>
+        
       </div>
       {error && (
         <div className="text-center p-5 font-semibold text-red-600">
