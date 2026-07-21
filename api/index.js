@@ -6,7 +6,7 @@ import userRouter from "./routes/user.route.js";
 import dns from 'dns';
 import cookieParser from "cookie-parser"; 
 import cors from "cors";
-
+import ListingRouter from './routes/listing.route.js'
 dns.setServers(['8.8.8.8', '8.8.4.4']);
 dotenv.config();
 const app = express();
@@ -24,6 +24,7 @@ app.listen(3000, () => {
 });
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
+app.use("/api/listing", ListingRouter);
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
 const message = err.message || "Internal Server Error";
