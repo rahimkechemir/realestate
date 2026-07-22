@@ -12,6 +12,7 @@ import {
   signoutSuccess,
   signoutFailure,
 } from "../redux/user/userSlice.js";
+import { Link } from "react-router-dom";
 
 function Profile() {
   const fileRef = useRef(null);
@@ -121,6 +122,10 @@ function Profile() {
         >
           {loading ? "Loading..." : "Update Profile"}
         </button>
+
+        <Link className="bg-green-700 text-white
+        p-3 uppercase rounded-lg text-center hover:opacity-95" to={'/create-listing'}>
+        create listing </Link>
       </form>
       <div className="flex justify-center gap-4 mt-6">
         <span
