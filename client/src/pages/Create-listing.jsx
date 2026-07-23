@@ -123,12 +123,13 @@ function Createlisting() {
       setError(false)
       const res = await fetch('/api/listing/create',{
         method:'POST',
+        credentials: 'include', 
         headers:{
-          'Content-Type':'aplication/json',
+          'Content-Type':'application/json',
         },
         body:JSON.stringify({
           ...formData,
-        useRef:currentUser._id})
+        userRef:currentUser._id})
       })
       const data = await res.json()
       setLoading(false)
